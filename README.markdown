@@ -1,7 +1,7 @@
 # ring-http-basic-auth
 
 A Ring middleware for adding basic HTTP authentication to your app.  Based on
-@remvee's ring-basic-authentication middleware.
+@remvee's ring-basic-authentication middleware, but adds some functionality.
 
 ## Install
 
@@ -10,11 +10,11 @@ Add `[ring-http-basic-auth "0.0.1"]` to the dependencies in your project.clj.
 ## Usage
 
 First define an authentication function that takes a username and password and
-returns a user.  The wrap-with-auth middleware binds to *user* the result of
-this function.  The wrap-require-auth middleware binds as well, but if *user*
-is non-true, it returns a 401 response.  It also takes two more optional
-arguments: the realm (a string), and a response map that will be used in case
-the authentication fails.
+returns a user.  The `wrap-with-auth` middleware binds to `*user*` the result
+of this function.  The `wrap-require-auth` middleware binds as well, but if
+`*user*` is non-true, it returns a 401 response.  It also takes two more
+optional arguments: the realm (a string), and a response map that will be used
+in case the authentication fails.
 
     (ns myapp.core
       (:use ring.middleware.http-basic-auth)
