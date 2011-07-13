@@ -40,7 +40,7 @@
     (let [[username password] (get-credentials req)]
       (binding [*user* (authenticate username password)]
         (if *user*
-          (app req))
+          (app req)
           (assoc
             (merge {:headers {"Content-Type" "text/plain"}
                     :body "HTTP authentication required."}
@@ -48,4 +48,4 @@
             :status  401
             :headers (merge (:headers denied-response)
               {"WWW-Authenticate" (format
-                "Basic realm=\"%s\"" (or realm "Restricted Area"))}))))))
+                "Basic realm=\"%s\"" (or realm "Restricted Area"))})))))))
