@@ -15,7 +15,7 @@ of this function.  The `wrap-require-auth` middleware binds as well, but if
 `*user*` is non-true, it returns a 401 response.  It also takes two more
 optional arguments: the realm (a string), and a response map that will be used
 in case the authentication fails.
-
+```clojure
     (ns myapp.core
       (:use ring.middleware.http-basic-auth)
       (:use compojure.core))
@@ -38,7 +38,7 @@ in case the authentication fails.
 
     (def app
       (handler/api main-routes))
-
+```
 ## Author
 
 Adeel Ahmad Khan <adeel@adeel.ru>.
